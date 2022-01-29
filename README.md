@@ -1,29 +1,12 @@
-# Nuxt 3 Minimal Starter
-
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
-
-## Setup
-
-Make sure to install the dependencies
-
-```bash
-yarn install
-```
+# Nuxt 3 Richtext Production SSR Issue Reprod
+See https://github.com/MarvinRudolph/storyblok-rich-text-renderer/issues/21
 
 ## Development
+To get it running, `npm install`. Then, run `npm run build` and then `npm run preview`. 
+You now see a production build of nuxt3 in ssr mode at `http://localhost:3000`. If you open it in your browser, you can now see the error mentioned in the issue. It goes away when wrapping the richtext element with `<ClientOnly>` like this:
 
-Start the development server on http://localhost:3000
-
-```bash
-yarn dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-yarn build
+<ClientOnly>
+  <RichTextRenderer :document="doc" />
+</ClientOnly>
 ```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
